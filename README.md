@@ -5,10 +5,10 @@ It is a simple game created using simple mathematics, objects, and sprites.
 
 Created by:
 
-1. Jim Samson (jasamson@alaska.edu)
-2. Samuel Grenon
-3. Cameron Titus
-4. Jacob Fairbanks
+* Jim Samson (jasamson@alaska.edu)
+* Samuel Grenon
+* Cameron Titus
+* Jacob Fairbanks
 
 Assembly Language Project 2
 
