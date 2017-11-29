@@ -9,6 +9,8 @@ endif()
 
 project(CornHub)
 
+set(CMAKE_LEGACY_CYGWIN_WIN32 0)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++14 -Wall")
 
 include_directories("${PROJECT_BINARY_DIR}")
