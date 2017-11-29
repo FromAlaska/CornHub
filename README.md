@@ -32,11 +32,11 @@ Required packages/software
 This project can be built using a terminal:
 * Clone the repo from [GitHub](https://github.com) 
   ```
-  $ git clone https://github.com/FromAlaska/Miraculous.git
+  $ git clone https://github.com/FromAlaska/CornHub.git
   ```
 * Change the directory to cloned git repository and create a build folder, then change the directory in it.
   ```
-  $ cd Miraculous
+  $ cd CornHub
   $ mkdir build
   $ cd build/
   ```
