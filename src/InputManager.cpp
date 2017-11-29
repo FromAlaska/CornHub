@@ -5,6 +5,7 @@
 // 				Jim Samson(jasamson@alaska.edu)
 
 #include "../include/InputManager.hpp"
+#include <iostream>
 
 // Input() constructor
 // See header for more documentation.
@@ -44,6 +45,20 @@ void Input::handleInput() {
 				if (event.key.code == sf::Keyboard::Escape) {
 					display_->window.close();
 				}
+
+				if(event.key.code == sf::Keyboard::LControl && sf::Keyboard::RControl)
+				{
+					std::cout<< "Testing Testing"<< std::endl;
+				}
+
+				if(event.key.code == sf::Keyboard::d){
+					std::cout <<"Testing move left" << std::endl;
+				}
+
+				if(event.key.code == sf::Keyboard::k){
+					std::cout <<"Testing move right" << std::endl;
+				}
+
 				break;
 			}
 			default:
