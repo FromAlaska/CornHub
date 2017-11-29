@@ -54,7 +54,7 @@ This project can be built using a terminal:
   ```
 * Now, you may able to run the application by using the following command:
   ```
-  $ ./Miraculous
+  $ ./CornHub
   ```
 * Thank You!
 
