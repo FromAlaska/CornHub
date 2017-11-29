@@ -1,1 +1,0 @@
-/usr/bin/c++    --std=c++14 -Wall -g   CMakeFiles/CornHub.dir/src/main.cpp.o CMakeFiles/CornHub.dir/src/Display.cpp.o CMakeFiles/CornHub.dir/src/InputManager.cpp.o CMakeFiles/CornHub.dir/src/ApplicationLoop.cpp.o CMakeFiles/CornHub.dir/src/timer.cpp.o  -o CornHub -rdynamic -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio 
