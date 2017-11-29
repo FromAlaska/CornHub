@@ -7,7 +7,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build (Debug or Release)" FORCE)
 endif()
 
-project(Miraculous)
+project(CornHub)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++14 -Wall")
 
@@ -24,7 +24,7 @@ set(SOURCE_FILES
 		)
 
 # Define sources and executable
-set(EXECUTABLE_NAME Miraculous)
+set(EXECUTABLE_NAME CornHub)
 add_executable(${EXECUTABLE_NAME} ${SOURCE_FILES} src/timer.cpp include/timer.hpp)
 
 # Detect and add SFML
