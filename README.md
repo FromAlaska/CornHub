@@ -1,4 +1,4 @@
-# CMake
+# CornHub
 This project is for Assembly Language "Project 2". 
 AngleTheta uses SFML, CUDA, a CMake Library and any operating system. 
 It is a simple game created using simple mathematics, objects, and sprites.
