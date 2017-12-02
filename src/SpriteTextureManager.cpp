@@ -1,6 +1,6 @@
 #include "../include/SpriteTextureManager.hpp"
 
-namespace frontier
+namespace cornhub
 {
 	void Sprite::loadTexture(string && nameOfFile, int scaleX, int scaleY, int posX, int posY)
 	{
@@ -11,7 +11,7 @@ namespace frontier
 		_spriteObject.setPosition(posX, posY);
 	}
 
-	void Sprite::loadTexture(std::vector<frontier::Sprite> & obj, string && nameOfFile)
+	void Sprite::loadTexture(std::vector<Sprite> & obj, string && nameOfFile)
 	{
 		for(auto iterator = obj.begin(); iterator != obj.end(); ++iterator)
 		{
@@ -32,7 +32,7 @@ namespace frontier
 		Display::draw(_spriteObject);
 	}
 
-	void Sprite::updateObject(std::vector<frontier::Sprite> & sprObj)
+	void Sprite::updateObject(std::vector<Sprite> & sprObj)
 	{
 		int iterator = 0;
 
@@ -54,7 +54,7 @@ namespace frontier
 		}
 	}
 
-	void Sprite::moveObject(std::vector<frontier::Sprite> & obj, sf::Time & dt, const int & objSpeed)
+	void Sprite::moveObject(std::vector<Sprite> & obj, sf::Time & dt, const int & objSpeed)
 	{
 		for(auto index = obj.begin(); index != obj.end(); ++index)
 		{
@@ -62,7 +62,7 @@ namespace frontier
 		}
 	}
 
-	void Sprite::drawObject(std::vector<frontier::Sprite> & obj)
+	void Sprite::drawObject(std::vector<Sprite> & obj)
 	{
 		for(auto index = obj.begin(); index != obj.end(); ++index)
 		{
