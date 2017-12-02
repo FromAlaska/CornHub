@@ -8,6 +8,8 @@
 
 // Display() Constructor
 // See header for more documentation.
+
+// TODO, organize this in a manner that makes sense
 Display::Display() {
 	man_.loadTexture("../resources/cornboy.png");
 	loadTexture();
