@@ -9,6 +9,8 @@
 
 #include "SpriteTextureManager.hpp"
 #include <SFML/Graphics.hpp>
+#include <vector>
+using std::vector;
 
 // Class Display
 // This is the main class that handles the window
@@ -40,6 +42,12 @@ public:
 	//				None.
 	void draw(const Corn::Sprite &);
 
+	// draw() function
+	// This draws a vector of Corn Sprite objects to the screen.
+	// Preconditions:
+	//				None.
+	void draw(const vector<Corn::Sprite> &);
+
 	// update() function
 	// Updates the objects that are on the screen.
 	// Preconditions:
@@ -67,7 +75,8 @@ public:
 public:
 	// Class Objects
 	sf::RenderWindow window;
-	Corn::Sprite man_;	
+	Corn::Sprite man_;
+	vector<Corn::Sprite> kernels_;
 };
 
 #define WINDOW_WIDTH 1280	

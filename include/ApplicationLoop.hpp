@@ -22,9 +22,6 @@ using std::unique_ptr;
 using std::shared_ptr;
 using std::make_shared;
 
-#define myproject_VERSION_MAJOR 0
-#define myproject_VERSION_MAJOR 1
-
 // Class AppLoop
 // This creates a loop that will make a window in a while loop.
 // Invariants:
