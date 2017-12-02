@@ -34,6 +34,10 @@ public:
 	//				None.
 	void draw();
 
+	// draw() function
+	// This draws Corn Sprite objects to the screen.
+	// Preconditions:
+	//				None.
 	void draw(const Corn::Sprite &);
 
 	// update() function
