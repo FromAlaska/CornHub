@@ -13,7 +13,7 @@
 Display::Display() {
 	kernels_.resize(100);
 	man_.loadTexture("../resources/cornboy.png");
-	Corn::Sprite::loadTexture(kernels_,"../resources/cornKernel.png");
+	//Corn::Sprite::loadTexture(kernels_,"../resources/cornKernel.png");
 
 	loadTexture();
 	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "CornHub", 
