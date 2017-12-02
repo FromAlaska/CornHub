@@ -15,6 +15,7 @@ AppLoop::AppLoop() {
 // windowLoop() function
 // See header for more documentation.
 void AppLoop::windowLoop() {
+
 	while(input_mgr_->display_->window.isOpen()) {
 		input_mgr_->display_->update();
 		input_mgr_->display_->draw();

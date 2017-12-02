@@ -7,10 +7,7 @@
 #ifndef DISPLAY_HPP
 #define DISPLAY_HPP
 
-#include "SpriteTextureManager.hpp"
 #include <SFML/Graphics.hpp>
-#include <vector>
-using std::vector;
 
 // Class Display
 // This is the main class that handles the window
@@ -36,18 +33,6 @@ public:
 	//				None.
 	void draw();
 
-	// draw() function
-	// This draws Corn Sprite objects to the screen.
-	// Preconditions:
-	//				None.
-	void draw(const Corn::Sprite &);
-
-	// draw() function
-	// This draws a vector of Corn Sprite objects to the screen.
-	// Preconditions:
-	//				None.
-	void draw(const vector<Corn::Sprite> &);
-
 	// update() function
 	// Updates the objects that are on the screen.
 	// Preconditions:
@@ -72,14 +57,12 @@ public:
 	//				None.
 	void setText(sf::Text&, const sf::Color&, float x, float y);
 
-public:
 	// Class Objects
 	sf::RenderWindow window;
-	Corn::Sprite man_;
-	vector<Corn::Sprite> kernels_;
+	sf::Sprite player;
 };
 
-#define WINDOW_WIDTH 1280	
-#define WINDOW_HEIGHT 720
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 
 #endif // DISPLAY_HPP
