@@ -11,9 +11,11 @@
 Display::Display() {
 	man_.loadTexture("../resources/cornboy.png");
 	loadTexture();
-	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "Miraculous", 
+	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "CornHub", 
 		sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
+
+	man_._spriteObject.setPosition(1280/2,0);
 	draw(man_);
 	setTexture();
 }
