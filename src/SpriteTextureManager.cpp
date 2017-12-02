@@ -1,21 +1,21 @@
 #include "../include/SpriteTextureManager.hpp"
 
-namespace cornhub
+namespace Corn
 {
 	void Sprite::loadTexture(string && nameOfFile, int scaleX, int scaleY, int posX, int posY)
 	{
-		if (!_textureObject.loadFromFile(resourcePath() + nameOfFile))
+		if (!_textureObject.loadFromFile(nameOfFile))
 		{ std::cout << "cannot find " << nameOfFile << std::endl; }
 
 		_spriteObject.setTexture(_textureObject);
 		_spriteObject.setPosition(posX, posY);
 	}
 
-	void Sprite::loadTexture(std::vector<Sprite> & obj, string && nameOfFile)
+	void Sprite::loadTexture(std::vector<Corn::Sprite> & obj, string && nameOfFile)
 	{
 		for(auto iterator = obj.begin(); iterator != obj.end(); ++iterator)
 		{
-			if (!iterator->_textureObject.loadFromFile(resourcePath() + nameOfFile))
+			if (!iterator->_textureObject.loadFromFile(nameOfFile))
 			{ std::cout << "cannot load " << nameOfFile << std::endl; }
 
 			iterator->_spriteObject.setTexture(iterator->_textureObject);
@@ -27,12 +27,15 @@ namespace cornhub
 		}
 	}
 
-	void Sprite::draw()
+	void Sprite::loadTexture(string && nameOfFile)
 	{
-		Display::draw(_spriteObject);
+		if (!_textureObject.loadFromFile(nameOfFile))
+			{ std::cout << "cannot load " << nameOfFile << std::endl; }
+		_spriteObject.setTexture(_textureObject);
+		_spriteObject.setPosition(0,0);
 	}
-
-	void Sprite::updateObject(std::vector<Sprite> & sprObj)
+	
+	void Sprite::updateObject(std::vector<Corn::Sprite> & sprObj)
 	{
 		int iterator = 0;
 
@@ -54,7 +57,7 @@ namespace cornhub
 		}
 	}
 
-	void Sprite::moveObject(std::vector<Sprite> & obj, sf::Time & dt, const int & objSpeed)
+	void Sprite::moveObject(std::vector<Corn::Sprite> & obj, sf::Time & dt, const int & objSpeed)
 	{
 		for(auto index = obj.begin(); index != obj.end(); ++index)
 		{
@@ -62,11 +65,11 @@ namespace cornhub
 		}
 	}
 
-	void Sprite::drawObject(std::vector<Sprite> & obj)
+	void Sprite::drawObject(std::vector<Corn::Sprite> & obj)
 	{
 		for(auto index = obj.begin(); index != obj.end(); ++index)
 		{
-			Display::draw(index->_spriteObject);
+			//Display::draw(index->_spriteObject);
 		}
 	}
 }

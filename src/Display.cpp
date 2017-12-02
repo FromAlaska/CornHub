@@ -9,11 +9,12 @@
 // Display() Constructor
 // See header for more documentation.
 Display::Display() {
+	man_.loadTexture("../resources/cornboy.png");
 	loadTexture();
-
 	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "Miraculous", 
 		sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
+	draw(man_);
 	setTexture();
 }
 
@@ -22,7 +23,14 @@ Display::Display() {
 void Display::draw() {
 	window.clear(); // Keep this first.
 	// Put objects in here!
+	draw(man_);
 	window.display(); // Keep this last.
+}
+
+// draw() function
+// See header for more documentation.
+void Display::draw(const Corn::Sprite & obj) {
+	window.draw(obj._spriteObject);
 }
 
 // update() function

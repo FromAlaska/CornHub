@@ -23,6 +23,7 @@ set(SOURCE_FILES
 			src/InputManager.cpp
 			src/ApplicationLoop.cpp
 			src/timer.cpp
+			src/SpriteTextureManager.cpp
 		)
 
 # Define sources and executable

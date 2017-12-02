@@ -1,8 +1,6 @@
 #ifndef SPRITETEXTUREMANAGER_HPP
 #define SPRITETEXTUREMANAGER_HPP
 
-#include "Display.hpp"
-
 #include <stdio.h>
 #include <string>
 using std::string;
@@ -25,10 +23,10 @@ namespace Corn
 		}
 
 		void loadTexture(string &&, int, int, int, int);
-		void draw();
 		void setPosition(int);
 
 		void loadTexture(std::vector<Corn::Sprite> &, string &&);
+		void loadTexture(string &&);
 		void updateObject(std::vector<Corn::Sprite> &);
 		void setPositionObj(std::vector<Corn::Sprite>&,const int &);
 		void moveObject(std::vector<Corn::Sprite> &, sf::Time &, const int &);

@@ -51,14 +51,6 @@ void Input::handleInput() {
 					std::cout<< "Testing Testing"<< std::endl;
 				}
 
-				if(event.key.code == sf::Keyboard::d){
-					std::cout <<"Testing move left" << std::endl;
-				}
-
-				if(event.key.code == sf::Keyboard::k){
-					std::cout <<"Testing move right" << std::endl;
-				}
-
 				break;
 			}
 			default:

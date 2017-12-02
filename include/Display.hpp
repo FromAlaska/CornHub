@@ -7,6 +7,7 @@
 #ifndef DISPLAY_HPP
 #define DISPLAY_HPP
 
+#include "SpriteTextureManager.hpp"
 #include <SFML/Graphics.hpp>
 
 // Class Display
@@ -33,6 +34,8 @@ public:
 	//				None.
 	void draw();
 
+	void draw(const Corn::Sprite &);
+
 	// update() function
 	// Updates the objects that are on the screen.
 	// Preconditions:
@@ -57,8 +60,10 @@ public:
 	//				None.
 	void setText(sf::Text&, const sf::Color&, float x, float y);
 
+public:
 	// Class Objects
 	sf::RenderWindow window;
+	Corn::Sprite man_;	
 };
 
 #define WINDOW_WIDTH 1920
