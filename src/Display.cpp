@@ -17,8 +17,10 @@ Display::Display() {
 	/*kernels_.resize(144);*/
 	for(unsigned int i=0; i<cobSize;i++) {
 		Corn::Sprite cornKernel;
-		kernels_.push_back(cornKernel);
 		cornKernel.loadTexture("../resources/cornKernel.png");
+		cornKernel._spriteObject.setPosition(50, 50);
+		kernels_.push_back(cornKernel);
+		//cornKernel.loadTexture("../resources/cornKernel.png");
 		
 	}
 	man_.loadTexture("../resources/cornboy.png");
@@ -36,19 +38,28 @@ Display::Display() {
 	cornCob_._spriteObject.setPosition(0, 720/2);
 	//aDumbKernel._spriteObject.setPosition(0, 720/2);
 	//kernels_._spriteObject.setPosition(50, 50);
-	for(unsigned int i=0;i<cobSize;i++) {
-		kernels_[i]._spriteObject.setPosition(50,50);
-	}
+	// for(unsigned int i=0;i<cobSize;i++) {
+	// 	kernels_[i]._spriteObject.setPosition(50,50);
+	// }
 	setTexture();
 }
 
 // draw() function
 // See header for more documentation.
 void Display::draw() {
+	for(unsigned int i=0;i<cobSize;i++) {
+		kernels_[i]._spriteObject.setPosition(50,50);
+	}
 	window.clear(); // Keep this first.
 	// Put objects in here!
-	window.draw(man_.spriteObject);
-	window.draw(cornCob_);
+	window.draw(man_._spriteObject);
+	window.draw(cornCob_._spriteObject);
+
+	for (unsigned int i = 0; i < kernels_.size(); i++)
+	{
+
+		window.draw(kernels_[i]._spriteObject);
+	}
 	//draw(aDumbKernel);
 	// for(unsigned int i=0; i<cobSize; i++) {
 	// 	draw(kernels_[i]);
@@ -74,10 +85,10 @@ void Display::draw(const vector<Corn::Sprite> & obj) {
 	// 	window.draw(iter->_spriteObject);
 	// 	std::cout << "HELL YEA\n";
 	// }
-	for (const auto &i : obj)
-	{
-		window.draw(*i);
-	}
+	// for (const auto &i : obj)
+	// {
+	// 	window.draw(*i);
+	// }
 }
 
 // update() function
