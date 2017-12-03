@@ -77,6 +77,7 @@ public:
 	sf::RenderWindow window;
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
+	Corn::Sprite cornCob_;
 };
 
 #define WINDOW_WIDTH 1280	

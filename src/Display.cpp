@@ -14,13 +14,14 @@ Display::Display() {
 	kernels_.resize(100);
 	man_.loadTexture("../resources/cornboy.png");
 	//Corn::Sprite::loadTexture(kernels_,"../resources/cornKernel.png");
-
+	cornCob_.loadTexture("../resources/Corncob01.png");
 	loadTexture();
 	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "CornHub", 
 		sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
 
-	man_._spriteObject.setPosition(1280/2,0);
+	man_._spriteObject.setPosition(1280/2 - 75,50);
+	cornCob_._spriteObject.setPosition(0, 720/2);
 	setTexture();
 }
 
@@ -30,6 +31,7 @@ void Display::draw() {
 	window.clear(); // Keep this first.
 	// Put objects in here!
 	draw(man_);
+	draw(cornCob_);
 	draw(kernels_);
 	window.display(); // Keep this last.
 }
