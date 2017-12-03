@@ -52,7 +52,6 @@ public:
 	// Updates the objects that are on the screen.
 	// Preconditions:
 	//				None.
-	void draw(const Corn::Sprite );
 
 	void update();
 
@@ -60,7 +59,7 @@ public:
 	// Loads textures to the sprites
 	// Preconditions:
 	//				None.
-	void loadTexture();
+	void loadTexture(vector<Corn::Sprite> &, string &&);
 
 	// setTexture() function
 	// Sets the texture to a sprite

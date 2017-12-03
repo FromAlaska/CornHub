@@ -14,21 +14,13 @@
 int cobSize = 10000;
 
 Display::Display() {
-	/*kernels_.resize(144);*/
-	for(unsigned int i=0; i<cobSize;i++) {
-		Corn::Sprite cornKernel;
-		cornKernel.loadTexture("../resources/cornKernel.png");
-		cornKernel._spriteObject.setPosition(50, 50);
-		kernels_.push_back(cornKernel);
-		//cornKernel.loadTexture("../resources/cornKernel.png");
-		
-	}
+	kernels_.resize(144);
+
 	man_.loadTexture("../resources/cornboy.png");
-	//aDumbKernel.loadTexture("../resources/cornKernel.png");
-	//loadTexture(kernels_,"../resources/cornKernel.png");
-	//Corn::Sprite::loadTexture(kernels_,"../resources/cornKernel.png");
-	//kernels_.loadTexture("../resources/cornKernel.png");
 	cornCob_.loadTexture("../resources/Corncob01.png");
+
+	loadTexture(kernels_,"../resources/cornKernel.png");
+
 	//loadTexture();
 	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "CornHub", 
 		sf::Style::Titlebar | sf::Style::Close);
@@ -36,59 +28,35 @@ Display::Display() {
 
 	man_._spriteObject.setPosition(1280/2 - 75,50);
 	cornCob_._spriteObject.setPosition(0, 720/2);
-	//aDumbKernel._spriteObject.setPosition(0, 720/2);
-	//kernels_._spriteObject.setPosition(50, 50);
-	// for(unsigned int i=0;i<cobSize;i++) {
-	// 	kernels_[i]._spriteObject.setPosition(50,50);
-	// }
+	kernels_[0]._spriteObject.setPosition(20,720/2);
+
 	setTexture();
 }
 
 // draw() function
 // See header for more documentation.
 void Display::draw() {
-	for(unsigned int i=0;i<cobSize;i++) {
-		kernels_[i]._spriteObject.setPosition(50,50);
-	}
+
 	window.clear(); // Keep this first.
 	// Put objects in here!
-	window.draw(man_._spriteObject);
-	window.draw(cornCob_._spriteObject);
+	draw(man_);
+	draw(cornCob_);
+	draw(kernels_);
 
-	for (unsigned int i = 0; i < kernels_.size(); i++)
-	{
-
-		window.draw(kernels_[i]._spriteObject);
-	}
-	//draw(aDumbKernel);
-	// for(unsigned int i=0; i<cobSize; i++) {
-	// 	draw(kernels_[i]);
-	// }
-	//draw(kernels_);
 	window.display(); // Keep this last.
 }
 
 // draw() function
 // See header for more documentation.
-// void Display::draw(const Corn::Sprite  obj) {
-// 	window.draw(obj._spriteObject);
-// }
-
-// void Display::draw(const Corn::Sprite  obj) {
-// 	window.draw(obj->_spriteObject);
-// }
+void Display::draw(const Corn::Sprite & obj) {
+	window.draw(obj._spriteObject);
+}
 
 void Display::draw(const vector<Corn::Sprite> & obj) {
-	// for(auto iter = obj.begin(); iter != obj.end(); ++iter)
-	// {
-	// 	std::cout << "HELL NAH\n";
-	// 	window.draw(iter->_spriteObject);
-	// 	std::cout << "HELL YEA\n";
-	// }
-	// for (const auto &i : obj)
-	// {
-	// 	window.draw(*i);
-	// }
+	for(auto iter = obj.begin(); iter != obj.end(); ++iter)
+	{
+		window.draw(iter->_spriteObject);
+	}
 }
 
 // update() function
@@ -99,8 +67,14 @@ void Display::update() {
 
 // loadTexture() function
 // See header for more documentation.
-void Display::loadTexture() {
+void Display::loadTexture(vector<Corn::Sprite>& obj, string && nameOfFile) {
+	for(auto iterator = obj.begin(); iterator != obj.end(); ++iterator)
+		{
+			if (!iterator->_textureObject.loadFromFile(nameOfFile))
+			{ std::cout << "cannot load " << nameOfFile << std::endl; }
 
+			iterator->_spriteObject.setTexture(iterator->_textureObject);
+		}
 }
 
 // setTexture() function
