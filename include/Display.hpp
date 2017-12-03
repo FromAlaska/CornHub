@@ -52,6 +52,8 @@ public:
 	// Updates the objects that are on the screen.
 	// Preconditions:
 	//				None.
+	void draw(const Corn::Sprite );
+
 	void update();
 
 	// loadTexture() function
@@ -78,6 +80,7 @@ public:
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;
+	Corn::Sprite aDumbKernel;
 };
 
 #define WINDOW_WIDTH 1280	
