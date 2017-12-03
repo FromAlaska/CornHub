@@ -28,7 +28,7 @@ Display::Display() {
 
 	man_._spriteObject.setPosition(1280/2 - 75,50);
 	cornCob_._spriteObject.setPosition(0, 720/2);
-	kernels_[0]._spriteObject.setPosition(20,720/2);
+	kernelPositioning(kernels_);
 
 	setTexture();
 }
@@ -87,4 +87,13 @@ void Display::setTexture() {
 // See header for more documentation.
 void Display::setText(sf::Text&, const sf::Color&, float x, float y) {
 
+}
+
+void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
+{
+	for(unsigned int row =0; row<=23; row++) {
+		for (unsigned int col =0; col<6; col++) {
+			v[col+row]._spriteObject.setPosition(20+(50*row),((720/2)+50*col));
+		}
+	}
 }

@@ -73,13 +73,14 @@ public:
 	//				None.
 	void setText(sf::Text&, const sf::Color&, float x, float y);
 
+	void kernelPositioning(vector<Corn::Sprite> &);
+
 public:
 	// Class Objects
 	sf::RenderWindow window;
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;
-	Corn::Sprite aDumbKernel;
 };
 
 #define WINDOW_WIDTH 1280	
