@@ -51,6 +51,43 @@ void Input::handleInput() {
 					std::cout<< "Testing Testing"<< std::endl;
 				}
 
+				if(event.key.code == sf::Keyboard::L)
+				{
+					if (display_->getPositionX() < 1060)
+					{	
+						display_->man_._spriteObject.move(50,0);
+						display_->draw(display_->man_);
+						for(unsigned i = 0; i < display_->kernels_.size(); i++)
+						{
+							if(display_->getKernelPositionX(display_->kernels_[i]) < display_->getPositionX())
+							{
+								display_->kernels_[i]._spriteObject.move(1000,1000);
+							}
+						std::cout<< "Testing Testing"<< std::endl;
+						}
+					}
+				}
+
+				if(event.key.code == sf::Keyboard::A)
+				{
+					if (display_->getPositionX() <= 1100 && display_->getPositionX() > 60 )
+					{	
+						display_->man_._spriteObject.move(-50,0);
+						display_->draw(display_->man_);
+						for(unsigned i = 0; i < display_->kernels_.size(); i++)
+						{
+							if(display_->getKernelPositionX(display_->kernels_[i]) < display_->getPositionX())
+							{
+								display_->kernels_[i]._spriteObject.move(1000,1000);
+							}
+							// {
+							// 	display_->kernels_[i].setPosition(1000,1000);
+							// }
+						}
+					}
+				}
+				
+
 				break;
 			}
 			default:

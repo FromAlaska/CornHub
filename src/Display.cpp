@@ -26,7 +26,7 @@ Display::Display() {
 		sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(60);
 
-	man_._spriteObject.setPosition(1280/2 - 75,50);
+	man_._spriteObject.setPosition(1240/2 - 75,50);
 	cornCob_._spriteObject.setPosition(0, 720/2);
 	kernelPositioning(kernels_);
 
@@ -89,11 +89,46 @@ void Display::setText(sf::Text&, const sf::Color&, float x, float y) {
 
 }
 
+float Display::getPositionX(){
+	std::cout << "   " <<man_._spriteObject.getPosition().x;
+	return man_._spriteObject.getPosition().x;
+}
+
+float Display::getPositionY(){
+	for(unsigned i = 0; i < kernels_.size(); i++){
+		std::cout << "     "<<kernels_[i]._spriteObject.getPosition().y;
+		return kernels_[i]._spriteObject.getPosition().y;
+	}
+}
+
+float Display::getKernelPositionX(Corn::Sprite & kernel){
+		for(unsigned i = 0; i < kernels_.size(); i++){
+		std::cout << "     "<<kernels_[i]._spriteObject.getPosition().x;
+		return kernels_[i]._spriteObject.getPosition().x;
+	}
+
+}
+
 void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 {
-	for(unsigned int row =0; row<=23; row++) {
-		for (unsigned int col =0; col<6; col++) {
-			v[col+row]._spriteObject.setPosition(20+(50*row),((720/2)+50*col));
+	unsigned int row;
+	int _x =0;
+	int _y = 360;
+	
+
+	for (unsigned int horizontal = 0; horizontal < 72; horizontal++) {
+		v[horizontal]._spriteObject.setPosition(40+_x, _y);
+		_x+=50;
+		if (horizontal == 23){
+			_y = 410;
+			_x=0;
+		} 
+		if (horizontal == 47){
+			_y = 460;
+			_x = 0;
 		}
 	}
 }
+		
+		
+	

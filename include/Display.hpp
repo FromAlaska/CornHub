@@ -75,6 +75,12 @@ public:
 
 	void kernelPositioning(vector<Corn::Sprite> &);
 
+	float getPositionX();
+
+	float getPositionY();
+	
+	float getKernelPositionX(Corn::Sprite &);
+
 public:
 	// Class Objects
 	sf::RenderWindow window;
