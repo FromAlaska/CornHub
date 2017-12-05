@@ -7,6 +7,8 @@
 #ifndef DISPLAY_HPP
 #define DISPLAY_HPP
 
+#include "../include/InputManager.hpp"
+#include <algorithm>
 #include "SpriteTextureManager.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
@@ -79,7 +81,9 @@ public:
 
 	float getPositionY();
 	
-	float getKernelPositionX(Corn::Sprite &);
+	float getKernelPositionX(Corn::Sprite );
+
+
 
 public:
 	// Class Objects
@@ -87,6 +91,8 @@ public:
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;
+
+	//bool isPressed;
 };
 
 #define WINDOW_WIDTH 1280	

@@ -33,7 +33,6 @@ void Input::handleInput() {
 	while (display_->window.pollEvent(event)) {
 		auto mousePosX = sf::Mouse::getPosition(display_->window).x; // x position
 		auto mousePosY = sf::Mouse::getPosition(display_->window).y; // y position
-
 		switch (event.type) {
 			case sf::Event::Closed: {
 				display_->window.close();
@@ -48,23 +47,28 @@ void Input::handleInput() {
 
 				if(event.key.code == sf::Keyboard::LControl && sf::Keyboard::RControl)
 				{
-					std::cout<< "Testing Testing"<< std::endl;
+					
 				}
 
-				if(event.key.code == sf::Keyboard::L)
+				if(sf::Keyboard::isKeyPressed(sf::Keyboard::L))
 				{
+					
+					for (unsigned int i = 0; i < display_->kernels_.size(); i++)
+					{
+						std::cout << display_->kernels_[i]._spriteObject.getPosition().x << " ";
+					}
+
 					if (display_->getPositionX() < 1060)
 					{	
+					
 						display_->man_._spriteObject.move(50,0);
 						display_->draw(display_->man_);
-						for(unsigned i = 0; i < display_->kernels_.size(); i++)
-						{
-							if(display_->getKernelPositionX(display_->kernels_[i]) < display_->getPositionX())
-							{
-								display_->kernels_[i]._spriteObject.move(1000,1000);
-							}
-						std::cout<< "Testing Testing"<< std::endl;
-						}
+					    
+						
+						
+						//std::cout << "isPressed";
+						//return isPressed = true;
+					
 					}
 				}
 
@@ -74,16 +78,7 @@ void Input::handleInput() {
 					{	
 						display_->man_._spriteObject.move(-50,0);
 						display_->draw(display_->man_);
-						for(unsigned i = 0; i < display_->kernels_.size(); i++)
-						{
-							if(display_->getKernelPositionX(display_->kernels_[i]) < display_->getPositionX())
-							{
-								display_->kernels_[i]._spriteObject.move(1000,1000);
-							}
-							// {
-							// 	display_->kernels_[i].setPosition(1000,1000);
-							// }
-						}
+					
 					}
 				}
 				
@@ -94,5 +89,7 @@ void Input::handleInput() {
 			break;	
 		}
 	}
-	return;
+//	display_->isPressed = false;
+	
 }
+

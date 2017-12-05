@@ -54,8 +54,11 @@ public:
 	//				None.
 	void handleInput();
 
+	
+
 	// Class objects
 	shared_ptr<Display> display_;
+	
 };
 
 #endif // INPUTMANAGER_HPP

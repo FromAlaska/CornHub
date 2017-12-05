@@ -12,6 +12,8 @@
 // TODO, organize this in a manner that makes sense
 
 int cobSize = 10000;
+Input control;
+
 
 Display::Display() {
 	kernels_.resize(144);
@@ -63,6 +65,18 @@ void Display::draw(const vector<Corn::Sprite> & obj) {
 // See header for more documentation.
 void Display::update() {
 
+	for (unsigned int i = 0; i < kernels_.size(); i++)
+	{
+		//std::cout << kernels_[i]._spriteObject.getPosition().x;
+		if (kernels_[i]._spriteObject.getPosition().x  <= man_._spriteObject.getPosition().x+100
+				&& kernels_[i]._spriteObject.getPosition().x >= man_._spriteObject.getPosition().x-50 
+				&& kernels_[i]._spriteObject.getPosition().y == 360 )
+		{
+			//kernels_[i]._spriteObject.setPosition(10000,10000;
+		//	kernels_.erase(kernels_.begin());
+		}
+	}
+
 }
 
 // loadTexture() function
@@ -90,20 +104,19 @@ void Display::setText(sf::Text&, const sf::Color&, float x, float y) {
 }
 
 float Display::getPositionX(){
-	std::cout << "   " <<man_._spriteObject.getPosition().x;
 	return man_._spriteObject.getPosition().x;
 }
 
 float Display::getPositionY(){
 	for(unsigned i = 0; i < kernels_.size(); i++){
-		std::cout << "     "<<kernels_[i]._spriteObject.getPosition().y;
+	//	std::cout << "     "<<kernels_[i]._spriteObject.getPosition().y;
 		return kernels_[i]._spriteObject.getPosition().y;
 	}
 }
 
-float Display::getKernelPositionX(Corn::Sprite & kernel){
+float Display::getKernelPositionX(Corn::Sprite  kernel){
 		for(unsigned i = 0; i < kernels_.size(); i++){
-		std::cout << "     "<<kernels_[i]._spriteObject.getPosition().x;
+	//	std::cout << "     "<<kernels_[i]._spriteObject.getPosition().x;
 		return kernels_[i]._spriteObject.getPosition().x;
 	}
 
@@ -128,7 +141,12 @@ void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 			_x = 0;
 		}
 	}
+
+	
 }
+
+
+
 		
 		
 	
