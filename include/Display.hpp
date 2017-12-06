@@ -91,6 +91,8 @@ public:
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;
+	bool isPressedSpace = false;
+	bool isRotating = false;
 
 	//bool isPressed;
 };

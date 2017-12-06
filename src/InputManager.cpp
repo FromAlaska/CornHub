@@ -47,16 +47,20 @@ void Input::handleInput() {
 
 				if(event.key.code == sf::Keyboard::LControl && sf::Keyboard::RControl)
 				{
-					
+					display_->isRotating = true;
 				}
 
+				if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				{
+					
+					display_->isPressedSpace = true;
+				}
+				
 				if(sf::Keyboard::isKeyPressed(sf::Keyboard::L))
 				{
 					
-					for (unsigned int i = 0; i < display_->kernels_.size(); i++)
-					{
-						std::cout << display_->kernels_[i]._spriteObject.getPosition().x << " ";
-					}
+				
+			
 
 					if (display_->getPositionX() < 1060)
 					{	
@@ -70,8 +74,10 @@ void Input::handleInput() {
 						//return isPressed = true;
 					
 					}
+
 				}
 
+				
 				if(event.key.code == sf::Keyboard::A)
 				{
 					if (display_->getPositionX() <= 1100 && display_->getPositionX() > 60 )
@@ -82,14 +88,34 @@ void Input::handleInput() {
 					}
 				}
 				
-
+	
 				break;
 			}
-			default:
+
+			//KeyReleased event so we can change the boolean to false upon release of the Space Key
+			//Hitting the Space Key means the dude is hungry and he will start eating all the corn
+			//When you release the space key the dude dont want to eat no moe.
+			case sf::Event::KeyReleased:
+
+                if (event.key.code == sf::Keyboard::Space)
+				{
+					 display_->isPressedSpace = false;
+					 
+				}
+
+				if(event.key.code == sf::Keyboard::LControl && sf::Keyboard::RControl)
+				{
+					display_->isRotating = false;
+				}
+
+                break; 
+				default:	
+
 			break;	
 		}
 	}
-//	display_->isPressed = false;
-	
 }
+
+	
+
 

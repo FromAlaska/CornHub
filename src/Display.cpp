@@ -12,7 +12,7 @@
 // TODO, organize this in a manner that makes sense
 
 int cobSize = 10000;
-Input control;
+
 
 
 Display::Display() {
@@ -26,7 +26,7 @@ Display::Display() {
 	//loadTexture();
 	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "CornHub", 
 		sf::Style::Titlebar | sf::Style::Close);
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(10);
 
 	man_._spriteObject.setPosition(1240/2 - 75,50);
 	cornCob_._spriteObject.setPosition(0, 720/2);
@@ -65,15 +65,54 @@ void Display::draw(const vector<Corn::Sprite> & obj) {
 // See header for more documentation.
 void Display::update() {
 
+
 	for (unsigned int i = 0; i < kernels_.size(); i++)
 	{
 		//std::cout << kernels_[i]._spriteObject.getPosition().x;
 		if (kernels_[i]._spriteObject.getPosition().x  <= man_._spriteObject.getPosition().x+100
 				&& kernels_[i]._spriteObject.getPosition().x >= man_._spriteObject.getPosition().x-50 
-				&& kernels_[i]._spriteObject.getPosition().y == 360 )
+				&& kernels_[i]._spriteObject.getPosition().y == 360 && isPressedSpace)
 		{
-			//kernels_[i]._spriteObject.setPosition(10000,10000;
-		//	kernels_.erase(kernels_.begin());
+			kernels_[i]._spriteObject.setPosition(10000,10000);
+
+		}
+	}
+
+	if(isRotating)
+	{
+		for (unsigned int i = 0; i < kernels_.size(); i++)
+		{
+			if(kernels_[i]._spriteObject.getPosition().y == 360)
+			{
+				kernels_[i]._spriteObject.setPosition(kernels_[i]._spriteObject.getPosition().x, 1810);
+			}
+
+			if(kernels_[i]._spriteObject.getPosition().y == 410)
+			{
+				kernels_[i]._spriteObject.setPosition(kernels_[i]._spriteObject.getPosition().x, 360);
+			}
+
+			if(kernels_[i]._spriteObject.getPosition().y == 460)
+			{
+				kernels_[i]._spriteObject.setPosition(kernels_[i]._spriteObject.getPosition().x, 410);
+			}
+
+			if(kernels_[i]._spriteObject.getPosition().y == 1510)
+			{
+				kernels_[i]._spriteObject.setPosition(kernels_[i]._spriteObject.getPosition().x, 460);
+			}
+
+			if(kernels_[i]._spriteObject.getPosition().y == 1610)
+			{
+				kernels_[i]._spriteObject.setPosition(kernels_[i]._spriteObject.getPosition().x, 1510);
+			}
+
+			if(kernels_[i]._spriteObject.getPosition().y == 1810)
+			{
+				kernels_[i]._spriteObject.setPosition(kernels_[i]._spriteObject.getPosition().x, 1610);
+			}
+	
+
 		}
 	}
 
@@ -129,7 +168,7 @@ void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 	int _y = 360;
 	
 
-	for (unsigned int horizontal = 0; horizontal < 72; horizontal++) {
+	for (unsigned int horizontal = 0; horizontal < 144; horizontal++) {
 		v[horizontal]._spriteObject.setPosition(40+_x, _y);
 		_x+=50;
 		if (horizontal == 23){
@@ -138,6 +177,18 @@ void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 		} 
 		if (horizontal == 47){
 			_y = 460;
+			_x = 0;
+		}
+		if (horizontal == 71){
+			_y = 1510;
+			_x = 0;
+		}
+		if (horizontal == 95){
+			_y = 1560;
+			_x = 0;
+		}
+		if (horizontal == 119){
+			_y = 1610;
 			_x = 0;
 		}
 	}
