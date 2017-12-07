@@ -10,6 +10,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Mouse.hpp>
+#include <SFML/Audio.hpp>
 #include "Display.hpp"
 #include <memory>
 using std::shared_ptr;
@@ -58,7 +59,10 @@ public:
 
 	// Class objects
 	shared_ptr<Display> display_;
-	
+	sf::SoundBuffer rowSwitchSFXBuffer_;
+	sf::SoundBuffer eatKernelSFXBuffer_;
+	sf::Sound rowSwitchSFX_;
+	sf::Sound eatKernelSFX_;
 };
 
 #endif // INPUTMANAGER_HPP

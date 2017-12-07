@@ -15,6 +15,15 @@ AppLoop::AppLoop() {
 // windowLoop() function
 // See header for more documentation.
 void AppLoop::windowLoop() {
+	if(!heartBeat_.openFromFile("../resources/sounds/bgSound.wav") /*&& !music_.openFromFile("../resources/sounds/"*/)
+		std::cout<<"Failed to locate background music" << std::endl;
+	else
+		heartBeat_.play();
+		heartBeat_.setPitch(.8);
+		heartBeat_.setLoop(true);
+		/*music_.play();
+		music_.setLoop(true);
+		music_.setPitch(.8);*/
 	while(input_mgr_->display_->window.isOpen()) {
 		input_mgr_->display_->update();
 		input_mgr_->display_->draw();

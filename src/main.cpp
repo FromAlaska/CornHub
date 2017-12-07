@@ -12,6 +12,7 @@
 // 				None.
 int main()
 {
+	
 	AppLoop window;
 	window.windowLoop();
 	return 0;

@@ -50,6 +50,8 @@ public:
 
 private:
 	unique_ptr<Input> input_mgr_;
+	sf::Music music_;
+	sf::Music heartBeat_;
 };
 
 #endif // APPLICATIONLOOP_HPP

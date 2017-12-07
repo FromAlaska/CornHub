@@ -47,12 +47,23 @@ void Input::handleInput() {
 
 				if(event.key.code == sf::Keyboard::LControl && sf::Keyboard::RControl)
 				{
+					if(!rowSwitchSFXBuffer_.loadFromFile("../resources/sounds/rowChange.wav"))
+						std::cout << "Failed to load rowChange sound"<<std::endl;
+					else
+						rowSwitchSFX_.setBuffer(rowSwitchSFXBuffer_);
+					rowSwitchSFX_.setPitch(.8);
+					rowSwitchSFX_.play();
 					display_->isRotating = true;
 				}
 
 				if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 				{
-					
+					if(!eatKernelSFXBuffer_.loadFromFile("../resources/sounds/eating.wav"))
+						std::cout << "Failed to load rowChange sound"<<std::endl;
+					else
+						eatKernelSFX_.setBuffer(eatKernelSFXBuffer_);
+					eatKernelSFX_.setPitch(.8);
+					eatKernelSFX_.play();
 					display_->isPressedSpace = true;
 				}
 				
@@ -115,7 +126,5 @@ void Input::handleInput() {
 		}
 	}
 }
-
-	
 
 
