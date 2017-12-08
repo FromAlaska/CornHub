@@ -12,7 +12,7 @@
 // TODO, organize this in a manner that makes sense
 
 int cobSize = 10000;
-
+static int kernelsEaten = 0;
 
 
 Display::Display() {
@@ -74,6 +74,20 @@ void Display::update() {
 				&& kernels_[i]._spriteObject.getPosition().y == 360 && isPressedSpace)
 		{
 			kernels_[i]._spriteObject.setPosition(10000,10000);
+			kernelsEaten++;
+			std::cout<< "Kernels eaten =" << kernelsEaten << std::endl;
+			if(kernelsEaten>=120)
+			{
+					{
+					if(!theGongBuffer_.loadFromFile("../resources/sounds/gameOverSound.wav"))
+						std::cout << "Failed to load the gameOverSound sound"<<std::endl;
+					else
+						theGong_.setBuffer(theGongBuffer_);
+					theGong_.setPitch(.8);
+					theGong_.setVolume(100);
+					theGong_.play();
+				}
+			}
 
 		}
 	}

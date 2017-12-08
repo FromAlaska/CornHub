@@ -52,6 +52,7 @@ void Input::handleInput() {
 					else
 						rowSwitchSFX_.setBuffer(rowSwitchSFXBuffer_);
 					rowSwitchSFX_.setPitch(.8);
+					rowSwitchSFX_.setVolume(50);
 					rowSwitchSFX_.play();
 					display_->isRotating = true;
 				}
@@ -63,6 +64,7 @@ void Input::handleInput() {
 					else
 						eatKernelSFX_.setBuffer(eatKernelSFXBuffer_);
 					eatKernelSFX_.setPitch(.8);
+					eatKernelSFX_.setVolume(50);
 					eatKernelSFX_.play();
 					display_->isPressedSpace = true;
 				}

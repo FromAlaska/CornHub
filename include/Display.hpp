@@ -88,6 +88,8 @@ public:
 public:
 	// Class Objects
 	sf::RenderWindow window;
+	sf::SoundBuffer theGongBuffer_;
+	sf::Sound theGong_;
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;
