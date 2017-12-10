@@ -13,6 +13,7 @@
 #include <SFML/Audio.hpp>
 #include <cstddef>
 #include <iostream>
+#include <time.h>
 using std::cout;
 using std::endl;
 #include <vector>
@@ -48,10 +49,14 @@ public:
 	// 				None.
 	void windowLoop();
 
+	time_t clockTime();
+
 private:
 	unique_ptr<Input> input_mgr_;
 	sf::Music music_;
 	sf::Music heartBeat_;
+	sf::Text atext;
+	sf::Font font;
 };
 
 #endif // APPLICATIONLOOP_HPP

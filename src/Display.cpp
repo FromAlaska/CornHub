@@ -16,6 +16,15 @@ static int kernelsEaten = 0;
 
 
 Display::Display() {
+
+	if (!font.loadFromFile("../resources/Sansation_Bold.ttf")){
+		std::cout << "Couldn't load file" << std::endl;
+	}
+	atext.setFont(font);
+	atext.setCharacterSize(20);
+	atext.setStyle(sf::Text::Bold);
+	atext.setColor(sf::Color::White);
+	atext.setPosition(50,50);
 	kernels_.resize(144);
 
 	man_.loadTexture("../resources/cornboy.png");
@@ -35,6 +44,12 @@ Display::Display() {
 	setTexture();
 }
 
+time_t Display::clockTime(){
+	__asm__("mov $201, %rax\n"
+			"xor %rdi, %rdi\n"
+			"syscall\n"
+			);
+}
 // draw() function
 // See header for more documentation.
 void Display::draw() {
@@ -59,6 +74,13 @@ void Display::draw(const vector<Corn::Sprite> & obj) {
 	{
 		window.draw(iter->_spriteObject);
 	}
+}
+
+void Display::draw(sf::Text & atext){
+	time_t _systemClock = clockTime();
+	time (&_systemClock);
+	atext.setString(ctime (&_systemClock));
+	window.draw(atext);
 }
 
 // update() function

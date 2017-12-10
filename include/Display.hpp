@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 using std::vector;
+#include<time.h>
 
 // Class Display
 // This is the main class that handles the window
@@ -38,6 +39,8 @@ public:
 	//				None.
 	void draw();
 
+	time_t clockTime();
+
 	// draw() function
 	// This draws Corn Sprite objects to the screen.
 	// Preconditions:
@@ -49,6 +52,8 @@ public:
 	// Preconditions:
 	//				None.
 	void draw(const vector<Corn::Sprite> &);
+
+	void draw(sf::Text &);
 
 	// update() function
 	// Updates the objects that are on the screen.
@@ -90,6 +95,8 @@ public:
 	sf::RenderWindow window;
 	sf::SoundBuffer theGongBuffer_;
 	sf::Sound theGong_;
+	sf::Text atext;
+	sf::Font font;
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;
