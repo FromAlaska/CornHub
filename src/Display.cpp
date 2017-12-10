@@ -9,14 +9,13 @@
 // Display() Constructor
 // See header for more documentation.
 
-// TODO, organize this in a manner that makes sense
-
 int cobSize = 10000;
 static int kernelsEaten = 0;
 
 
 Display::Display() {
 
+	// Font section
 	if (!font.loadFromFile("../resources/fonts/Chava-Regular.ttf")){
 		std::cout << "Couldn't load file" << std::endl;
 	}
@@ -25,25 +24,26 @@ Display::Display() {
 	atext.setStyle(sf::Text::Bold);
 	atext.setColor(sf::Color::White);
 	atext.setPosition(0,0);
+
+	// Kernel section
 	kernels_.resize(144);
+	kernelPositioning(kernels_);
 
-	man_.loadTexture("../resources/cornboy.png");
-	cornCob_.loadTexture("../resources/Corncob01.png");
+	// Load texture section
+	setTexture();
 
-	loadTexture(kernels_,"../resources/cornKernel.png");
-
-	//loadTexture();
+	// Window section
 	window.create(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), "CornHub", 
 		sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(10);
 
+	// Set positioning section
 	man_._spriteObject.setPosition(1240/2 - 75,50);
 	cornCob_._spriteObject.setPosition(0, 720/2);
-	kernelPositioning(kernels_);
-
-	setTexture();
 }
 
+// clockTime() function
+// See header for more documentation.
 time_t Display::clockTime(){
 	__asm__("mov $201, %rax\n"
 			"xor %rdi, %rdi\n"
@@ -70,6 +70,8 @@ void Display::draw(const Corn::Sprite & obj) {
 	window.draw(obj._spriteObject);
 }
 
+// draw() function (for each kernel)
+// See header for more documentation.
 void Display::draw(const vector<Corn::Sprite> & obj) {
 	for(auto iter = obj.begin(); iter != obj.end(); ++iter)
 	{
@@ -77,12 +79,13 @@ void Display::draw(const vector<Corn::Sprite> & obj) {
 	}
 }
 
-void Display::draw(sf::Text & atext){
-
-	
-	std::cout << (ctime (&_systemClock));
-//	atext.setString(ctime (&_systemClock));
-	window.draw(atext);
+// draw() function (for the text)
+// See header for more documentation.
+void Display::draw(sf::Text & text)
+{	
+	//std::cout << (ctime (&_systemClock)); // Uncomment to see the system time
+	//atext.setString(ctime (&_systemClock));
+	window.draw(text);
 }
 
 // update() function
@@ -93,6 +96,64 @@ void Display::update() {
 	time (&_systemClock);
 	atext.setString(ctime (&_systemClock));
 
+	// This is a function in this class
+	checkKernelPosition();
+}
+
+// loadTexture() function
+// See header for more documentation.
+void Display::loadTexture(vector<Corn::Sprite>& obj, string && nameOfFile) {
+	for(auto iterator = obj.begin(); iterator != obj.end(); ++iterator)
+		{
+			if (!iterator->_textureObject.loadFromFile(nameOfFile))
+			{ std::cout << "cannot load " << nameOfFile << std::endl; }
+
+			iterator->_spriteObject.setTexture(iterator->_textureObject);
+		}
+}
+
+// setTexture() function
+// See header for more documentation.
+void Display::setTexture() {
+	man_.loadTexture("../resources/cornboy.png");
+	cornCob_.loadTexture("../resources/Corncob01.png");
+	loadTexture(kernels_,"../resources/cornKernel.png");
+}
+
+// setText function
+// See header for more documentation.
+void Display::setText(sf::Text&, const sf::Color&, float x, float y) {
+
+}
+
+// getPositionX() function
+// See header for more documentation.
+float Display::getPositionX(){
+	return man_._spriteObject.getPosition().x;
+}
+
+// getPositionY() function
+// See header for more documentation.
+float Display::getPositionY(){
+	for(unsigned i = 0; i < kernels_.size(); i++){
+	//	std::cout << "     "<<kernels_[i]._spriteObject.getPosition().y;
+		return kernels_[i]._spriteObject.getPosition().y;
+	}
+}
+
+// getKernelPositionX() function
+// See header for more documentation.
+float Display::getKernelPositionX(Corn::Sprite  kernel){
+		for(unsigned i = 0; i < kernels_.size(); i++){
+	//	std::cout << "     "<<kernels_[i]._spriteObject.getPosition().x;
+		return kernels_[i]._spriteObject.getPosition().x;
+	}
+}
+
+// checkKernelPosition() function
+// See header for more documentation.
+void Display::checkKernelPosition()
+{
 	for (unsigned int i = 0; i < kernels_.size(); i++)
 	{
 		//std::cout << kernels_[i]._spriteObject.getPosition().x;
@@ -159,49 +220,8 @@ void Display::update() {
 
 }
 
-// loadTexture() function
+// kernelPositioning() function
 // See header for more documentation.
-void Display::loadTexture(vector<Corn::Sprite>& obj, string && nameOfFile) {
-	for(auto iterator = obj.begin(); iterator != obj.end(); ++iterator)
-		{
-			if (!iterator->_textureObject.loadFromFile(nameOfFile))
-			{ std::cout << "cannot load " << nameOfFile << std::endl; }
-
-			iterator->_spriteObject.setTexture(iterator->_textureObject);
-		}
-}
-
-// setTexture() function
-// See header for more documentation.
-void Display::setTexture() {
-
-}
-
-// setText function
-// See header for more documentation.
-void Display::setText(sf::Text&, const sf::Color&, float x, float y) {
-
-}
-
-float Display::getPositionX(){
-	return man_._spriteObject.getPosition().x;
-}
-
-float Display::getPositionY(){
-	for(unsigned i = 0; i < kernels_.size(); i++){
-	//	std::cout << "     "<<kernels_[i]._spriteObject.getPosition().y;
-		return kernels_[i]._spriteObject.getPosition().y;
-	}
-}
-
-float Display::getKernelPositionX(Corn::Sprite  kernel){
-		for(unsigned i = 0; i < kernels_.size(); i++){
-	//	std::cout << "     "<<kernels_[i]._spriteObject.getPosition().x;
-		return kernels_[i]._spriteObject.getPosition().x;
-	}
-
-}
-
 void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 {
 	unsigned int row;

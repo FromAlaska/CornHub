@@ -8,8 +8,9 @@
 #define DISPLAY_HPP
 
 #include "../include/InputManager.hpp"
-#include <algorithm>
 #include "SpriteTextureManager.hpp"
+
+#include <algorithm>
 #include <SFML/Graphics.hpp>
 #include <vector>
 using std::vector;
@@ -39,6 +40,10 @@ public:
 	//				None.
 	void draw();
 
+	// clockTime function
+	// Returns a current time and date of the computer
+	// Preconditions:
+	//				None.
 	time_t clockTime();
 
 	// draw() function
@@ -53,13 +58,16 @@ public:
 	//				None.
 	void draw(const vector<Corn::Sprite> &);
 
+	// draw() text function
+	// Draws a text object to the screen
+	// Preconditions:
+	//				None.
 	void draw(sf::Text &);
 
 	// update() function
 	// Updates the objects that are on the screen.
 	// Preconditions:
 	//				None.
-
 	void update();
 
 	// loadTexture() function
@@ -74,21 +82,47 @@ public:
 	//				None.
 	void setTexture(); 
 
-	// setText function
+	// setText() function
 	// Sets texts to a text object
 	// Preconditions:
 	//				None.
 	void setText(sf::Text&, const sf::Color&, float x, float y);
 
+	// kernelPositioning() function
+	// ???
+	// Preconditions:
+	//				None.
 	void kernelPositioning(vector<Corn::Sprite> &);
 
+	// getPosition() function
+	// Returns the position of an object.
+	// Preconditions:
+	//				None.
 	float getPositionX();
 
+	// getPosition() function
+	// Returns the position of an object.
+	// Preconditions:
+	//				None.
 	float getPositionY();
 	
+	// getKernelPosition() function
+	// Returns the position of the kernel.
+	// Preconditions:
+	//				None.
 	float getKernelPositionX(Corn::Sprite );
 
+	// checkTime() function
+	// Starts the time and returns the time
+	// Preconditions:
+	//				None.
+	void checkTime();
 
+	// checkKernel() function
+	// Checks the position of the kernel.
+	// Preconditions:
+	//				None.
+	void checkKernelPosition();
 
 public:
 	// Class Objects
