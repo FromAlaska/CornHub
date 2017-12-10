@@ -2,6 +2,7 @@
 
 namespace Corn
 {
+	
 	void Sprite::loadTexture(string && nameOfFile, int scaleX, int scaleY, int posX, int posY)
 	{
 		if (!_textureObject.loadFromFile(nameOfFile))

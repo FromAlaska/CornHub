@@ -95,6 +95,7 @@ public:
 	sf::RenderWindow window;
 	sf::SoundBuffer theGongBuffer_;
 	sf::Sound theGong_;
+	time_t _systemClock;
 	sf::Text atext;
 	sf::Font font;
 	Corn::Sprite man_;

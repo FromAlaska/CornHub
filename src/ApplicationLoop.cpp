@@ -10,14 +10,6 @@
 // See header for more documentation.
 AppLoop::AppLoop() {
 	input_mgr_ = make_unique<Input>();
-	if (!font.loadFromFile("../resources/Sansation_Bold.ttf")){
-		std::cout << "Couldn't load file" << std::endl;
-	}
-	atext.setFont(font);
-	atext.setCharacterSize(20);
-	atext.setStyle(sf::Text::Bold);
-	atext.setColor(sf::Color::White);
-	atext.setPosition(50,50);
 	
 }
 
@@ -30,9 +22,6 @@ time_t AppLoop::clockTime(){
 // windowLoop() function
 // See header for more documentation.
 void AppLoop::windowLoop() {
-	time_t _systemClock = clockTime();
-	time (&_systemClock);
-	atext.setString(ctime (&_systemClock));
 	//std::cout << clockTime();
 	if(!heartBeat_.openFromFile("../resources/sounds/cornBGMusic.wav") /*&& !music_.openFromFile("../resources/sounds/"*/)
 		std::cout<<"Failed to locate background music" << std::endl;

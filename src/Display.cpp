@@ -17,14 +17,14 @@ static int kernelsEaten = 0;
 
 Display::Display() {
 
-	if (!font.loadFromFile("../resources/Sansation_Bold.ttf")){
+	if (!font.loadFromFile("../resources/fonts/Chava-Regular.ttf")){
 		std::cout << "Couldn't load file" << std::endl;
 	}
 	atext.setFont(font);
-	atext.setCharacterSize(20);
+	atext.setCharacterSize(50);
 	atext.setStyle(sf::Text::Bold);
 	atext.setColor(sf::Color::White);
-	atext.setPosition(50,50);
+	atext.setPosition(0,0);
 	kernels_.resize(144);
 
 	man_.loadTexture("../resources/cornboy.png");
@@ -59,6 +59,7 @@ void Display::draw() {
 	draw(man_);
 	draw(cornCob_);
 	draw(kernels_);
+	draw(atext);
 
 	window.display(); // Keep this last.
 }
@@ -77,9 +78,10 @@ void Display::draw(const vector<Corn::Sprite> & obj) {
 }
 
 void Display::draw(sf::Text & atext){
-	time_t _systemClock = clockTime();
-	time (&_systemClock);
-	atext.setString(ctime (&_systemClock));
+
+	
+	std::cout << (ctime (&_systemClock));
+//	atext.setString(ctime (&_systemClock));
 	window.draw(atext);
 }
 
@@ -87,6 +89,9 @@ void Display::draw(sf::Text & atext){
 // See header for more documentation.
 void Display::update() {
 
+	_systemClock = clockTime();
+	time (&_systemClock);
+	atext.setString(ctime (&_systemClock));
 
 	for (unsigned int i = 0; i < kernels_.size(); i++)
 	{
