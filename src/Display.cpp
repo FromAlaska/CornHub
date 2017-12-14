@@ -3,6 +3,9 @@
 // This is the Display class. It handles the window function.
 // Created by:
 // 				Jim Samson(jasamson@alaska.edu)
+//				Samuel Grenon
+//				Cameron Titus
+//				Jacob Fairbanks
 
 #include "../include/Display.hpp"
 
@@ -11,7 +14,6 @@
 
 int cobSize = 10000;
 static int kernelsEaten = 0;
-
 
 Display::Display() {
 
@@ -114,7 +116,8 @@ void Display::loadTexture(vector<Corn::Sprite>& obj, string && nameOfFile) {
 
 // setTexture() function
 // See header for more documentation.
-void Display::setTexture() {
+void Display::setTexture() 
+{
 	man_.loadTexture("../resources/cornboy.png");
 	cornCob_.loadTexture("../resources/Corncob01.png");
 	loadTexture(kernels_,"../resources/cornKernel.png");
@@ -122,7 +125,8 @@ void Display::setTexture() {
 
 // setText function
 // See header for more documentation.
-void Display::setText(sf::Text&, const sf::Color&, float x, float y) {
+void Display::setText(sf::Text&, const sf::Color&, float x, float y) 
+{
 
 }
 
@@ -141,7 +145,7 @@ float Display::getPositionY(){
 	}
 }
 
-// getKernelPositionX() function
+// getKernelPositionX() functions
 // See header for more documentation.
 float Display::getKernelPositionX(Corn::Sprite  kernel){
 		for(unsigned i = 0; i < kernels_.size(); i++){
@@ -234,7 +238,7 @@ void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 		_x+=50;
 		if (horizontal == 23){
 			_y = 410;
-			_x=0;
+			_x = 0;
 		} 
 		if (horizontal == 47){
 			_y = 460;

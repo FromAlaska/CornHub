@@ -44,7 +44,6 @@ endif()
 # Install target
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
 
-
 # CPack packaging
 include(InstallRequiredSystemLibraries)
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")

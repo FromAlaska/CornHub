@@ -2,7 +2,10 @@
 // November 27, 2017
 // This is the window manager class
 // Created by:
-// 			Jim Samson (jasamson@alaska.edu)
+// 			Jim Samson (jasamson@alaska.edu)\
+//			Samuel Grenon
+//			Cameron Titus
+//			Jacob Fairbanks
 
 #ifndef APPLICATIONLOOP_HPP
 #define APPLICATIONLOOP_HPP
@@ -49,6 +52,10 @@ public:
 	// 				None.
 	void windowLoop();
 
+	// clockTime() function
+	// Returns a type of time_t 
+	// Preconditions:
+	// 				None.
 	time_t clockTime();
 
 private:
