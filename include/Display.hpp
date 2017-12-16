@@ -124,14 +124,23 @@ public:
 	//				None.
 	void checkKernelPosition();
 
+	// krazyPositioning
+	// THIS IS THE 301 PART OF THIS PROJECT. WE USE BITSHIFTING TO MOVE THE Y-AXIS OF THE KERNEL POSITIONING.
+	// Preconditions:
+	//				None.
+	void krazyPositioning(std::vector<Corn::Sprite> &v);
+
 public:
 	// Class Objects
 	sf::RenderWindow window;
 	sf::SoundBuffer theGongBuffer_;
 	sf::Sound theGong_;
 	time_t _systemClock;
+	
 	sf::Text atext;
+	sf::Text hardModeText;
 	sf::Font font;
+	
 	Corn::Sprite man_;
 	vector<Corn::Sprite> kernels_;
 	Corn::Sprite cornCob_;

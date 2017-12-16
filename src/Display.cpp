@@ -27,6 +27,12 @@ Display::Display() {
 	atext.setColor(sf::Color::White);
 	atext.setPosition(0,0);
 
+	hardModeText.setFont(font);
+	hardModeText.setCharacterSize(100);
+	hardModeText.setStyle(sf::Text::Bold);
+	hardModeText.setColor(sf::Color::Red);
+	hardModeText.setPosition(280,600);
+
 	// Kernel section
 	kernels_.resize(144);
 	kernelPositioning(kernels_);
@@ -62,6 +68,7 @@ void Display::draw() {
 	draw(cornCob_);
 	draw(kernels_);
 	draw(atext);
+	draw(hardModeText);
 
 	window.display(); // Keep this last.
 }
@@ -178,6 +185,8 @@ void Display::checkKernelPosition()
 					theGong_.setPitch(.8);
 					theGong_.setVolume(100);
 					theGong_.play();
+					krazyPositioning(kernels_);
+					hardModeText.setString("Hard MODE!!!!!!");
 				}
 			}
 
@@ -257,12 +266,39 @@ void Display::kernelPositioning(std::vector<Corn::Sprite> &v)
 			_x = 0;
 		}
 	}
-
-	
 }
-
-
-
-		
-		
+// kernelPositioning() function
+// See header for more documentation.
+void Display::krazyPositioning(std::vector<Corn::Sprite> &v)
+{
+	unsigned int row;
+	int _x =0;
+	int _y = 360;
 	
+	// The Brandon MODE - NOTE THIS IS UNBEATABLE. THIS USES BIT-SHIFTING TO CHANGE THE y axis. It intentionally makes
+	// this game undesirable to beat.
+	for (unsigned int horizontal = 0; horizontal < 144; horizontal++) {
+		v[horizontal]._spriteObject.setPosition(40+_x, _y);
+		_x+=50;
+		if (horizontal == 23){
+			_y = (410<<22);
+			_x = 0;
+		} 
+		if (horizontal == 47){
+			_y = (460<<23);
+			_x = 0;
+		}
+		if (horizontal == 71){
+			_y = (1510<<34);
+			_x = 0;
+		}
+		if (horizontal == 95){
+			_y = (1560<<35);
+			_x = 0;
+		}
+		if (horizontal == 119){
+			_y = (1610<<4);
+			_x = 0;
+		}
+	}
+}
