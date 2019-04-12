@@ -26,7 +26,6 @@ Required packages/software
 * [SFML](https://www.sfml-dev.org/download/sfml/2.4.2/) 2.x.x
 * [CMake](https://cmake.org/download/) 2.6.x or newer
 * GNU Make 4.x
-* An NVIDIA Graphics Card
 ---
 
 This project can be built using a terminal:
