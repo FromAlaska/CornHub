@@ -7,8 +7,8 @@ Created by:
 
 * Jim Samson (jasamson@alaska.edu)
 * Samuel Grenon
-* Cameron Titus
-* Jacob Fairbanks
+* Cameron K. Titus
+* Kim Fairbanks
 
 Assembly Language Project 2
 
@@ -58,6 +58,12 @@ This project can be built using a terminal:
   ```
 * Thank You!
 
+* Controls for the game:
+  * A - Move left
+  * L - Move right
+  * Ctrl - Move row down
+  * Shift - move row up
+  * Space - EAT
 ---
 
 ### License
